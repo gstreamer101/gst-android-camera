@@ -1,3 +1,10 @@
+Announcement
+------------
+**Maintenance Notice**: As of May 2025, this repository (https://github.com/gstreamer101/gst-android-camera) will be actively maintained as the official fork of the original gst-android-camera project. We will provide regular updates, bug fixes, and support for modern Android versions. All future development and improvements for GStreamer Android camera integration will happen here.
+
+If you're using the previous repository, we recommend updating your references to this one. Feel free to open issues or contribute via pull requests to help improve this project.
+
+
 Example Android App for AHCSRC
 ==============================
 
