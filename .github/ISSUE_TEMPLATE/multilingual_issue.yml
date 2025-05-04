@@ -1,0 +1,28 @@
+name: Multilingual Issue Template
+description: A template that allows contributors to create issues in their preferred language
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        When creating an issue, please use the language that is most convenient for you.
+        撰寫問題時，請使用您最方便的語言撰寫。
+        イシューを作成する際は、ご自身が使いやすい言語で記入してください。
+        При создании вопроса, пожалуйста, пишите на удобном для вас языке.
+        이슈를 작성할때, 자신이 편리한 언어를 사용하여 작성해주세요。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 이슈 설명
+      placeholder: 이슈에 대해 설명해주세요
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Don't forget to define acceptance criteria
+    validations:
+      required: true
