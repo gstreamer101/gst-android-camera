@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    namespace "org.freedesktop.gstreamer.examples.camera"
+    compileSdkVersion 33
+    ndkVersion "25.2.9519653"
     defaultConfig {
         applicationId "org.freedesktop.gstreamer.examples.camera"
-        minSdkVersion 25
-        targetSdkVersion 29
+        minSdkVersion 24
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -49,6 +50,14 @@ android {
         }
     }
     productFlavors {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs << "-Xlint:deprecation"
     }
 }
 
