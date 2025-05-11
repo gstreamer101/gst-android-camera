@@ -248,30 +248,27 @@ public class CameraActivity extends AppCompatActivity {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
 
+        int id = view.getId();
+
         // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_resolution_320:
-                if (checked) {
-                    gstAhc.changeResolutionTo(320, 240);
-                }
-                break;
-            case R.id.radio_resolution_640:
-                if (checked) {
-                    gstAhc.changeResolutionTo(640, 480);
-                }
-                    break;
+        if(id == R.id.radio_resolution_320) {
+            if (checked) {
+                gstAhc.changeResolutionTo(320, 240);
+            }
+        } else if (id == R.id.radio_resolution_640) {
+            if (checked) {
+                gstAhc.changeResolutionTo(640, 480);
+            }
         }
     }
 
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
 
-        switch(view.getId()) {
-            case R.id.autofocus:
-                    gstAhc.setAutoFocus(checked);
-                break;
-            default:
-                break;
+        int id = view.getId();
+
+        if(id == R.id.autofocus) {
+            gstAhc.setAutoFocus(checked);
         }
     }
 
