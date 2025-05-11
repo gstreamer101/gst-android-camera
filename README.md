@@ -11,21 +11,24 @@ Example Android App for AHCSRC
 Prerequisite
 ------------
 
- - Gstreamer SDK for Android (>=1.7.1)
- - Android Studio (>=2.3.3)
- - Android NDK (>=r15b)
- - Gradle (>=2.3.3)
+ - Gstreamer SDK for Android (>=1.26.1)
+ - Android Studio (>=2024.3.1)
+ - Android NDK (>=r25c)
+ - Gradle (>=8.11.1)
 
-Build and Installation
+Build and Installation with terminal
 ----------------------
 
- - Set GSTREAMER_ROOT_ANDROID evironment varible
+- Download GStreamer
+Go to: https://gstreamer.freedesktop.org/download/
+Download the Android Universal 1.26.1 tarball, and extract it to a desired location.
 
+- Set GSTREAMER_ROOT_ANDROID evironment varible
 ```
   $ export GSTREAMER_ROOT_ANDROID=/path/to/gstreamer/sdk
 ```
 
- - Create `local.properties` and add `sdk.dir` and `ndk.dir` properties
+ - Create `local.properties` and add `sdk.dir` properties
 
  - Build with gradle
 
@@ -38,6 +41,27 @@ Build and Installation
 ```
   $ gradle installDebug
 ```
+
+Build and Installation with Android Studio
+----------------------
+
+- Set GSTREAMER_ROOT_ANDROID
+  There are two ways to tell Gradle where the Android GStreamer is located
+
+  * Set GSTREAMER_ROOT_ANDROID using Android Run Configurations
+    * Run > Edit Configurations > + > Gradle
+    * Environment variables
+    * add : GSTREAMER_ROOT_ANDROID=/your/path
+
+  * Set gstAndroidRoot using gradle.properties
+  Open gradle.properties in your project and add:
+    ```
+    gstAndroidRoot=/your_gstreamer_path/gstreamer/1.26.1
+    ```
+
+- Sync Gradle
+
+- Click the "Run 'app'" button at the top of Android Studio to build and install your app simultaneously.
 
 Screenshots
 ----------
