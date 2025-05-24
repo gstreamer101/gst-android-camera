@@ -1,34 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/ktechhub/doctoc)*
-
-<!---toc start-->
-
-* [프로젝트 목적](#프로젝트-목적)
-* [1. 안드로이드 카메라  API](#1-안드로이드-카메라-api)
-  * [History](#history)
-    * [API 버전 목록](#api-버전-목록)
-    * [Camera (deprecated)](#camera-deprecated)
-    * [Camera2 (**버전업 대상 API**)](#camera2-버전업-대상-api)
-    * [CameraX](#camerax)
-  * [버전 업그레이드 특기 사항](#버전-업그레이드-특기-사항)
-    * [Camera1은 C/C++ 라이브러리가 제공되지 않았습니다.](#camera1은-cc-라이브러리가-제공되지-않았습니다)
-    * [Camera2는 C/C++ 라이브러리가 제공됩니다](#camera2는-cc-라이브러리가-제공됩니다)
-    * [GStreamer 플러그인으로 구현시, 성능 관점 차이점](#gstreamer-플러그인으로-구현시-성능-관점-차이점)
-  * [Camera2 기반의 예시 프로젝트 (Not maintained)](#camera2-기반의-예시-프로젝트-not-maintained)
-* [2. GStreamer 에서의 카메라 제어](#2-gstreamer-에서의-카메라-제어)
-  * [1. 카메라 파라미터 제어 - **GstPhotography**](#1-카메라-파라미터-제어---gstphotography)
-    * [인터페이스 구현 방식](#인터페이스-구현-방식)
-      * [1. `GstPhotography` 인터페이스 등록](#1-gstphotography-인터페이스-등록)
-      * [2. 인터페이스 초기화 및 메서드 바인딩](#2-인터페이스-초기화-및-메서드-바인딩)
-      * [함수 구현 예시 `gst_ahc_src_get_zoom`](#함수-구현-예시-gstahcsrcgetzoom)
-  * [**2. 캡처 파이프라인** 구성 및 스트림 제어 - CameraBin 및 GstBaseCameraSrc](#2-캡처-파이프라인-구성-및-스트림-제어---camerabin-및-gstbasecamerasrc)
-    * [인터페이스 구현 방식](#인터페이스-구현-방식-1)
-
-<!---toc end-->
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # 프로젝트 목적
 
 안드로이드에서 GStreamer를 사용 할 수 있도록, 안드로이드의 카메라 API를 GStreamer에 통합시키는 프로젝트입니다.
