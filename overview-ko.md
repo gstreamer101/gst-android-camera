@@ -286,4 +286,4 @@ Camera2 API 기반의 구현에서는, JNI로 뚫어둔 함수 구현들이 C/C+
 
 [pushsrc 사용 예시](https://github.com/gstreamer101/gstreamer/blob/android/camera/subprojects/gst-plugins-bad/sys/androidmedia/gstahcsrc.h#L29)
 
-**A.** 간단하게 요약하자면, GstBaseCameraSrc 가 최신이고 인터페이스가 더 디테일해졌다고 보면 됩니다. 앞으로의 작업들은 CameraBin에 맞게 진행하면 됩니다
+**A.** // TODO
