@@ -4,11 +4,11 @@
 
 더 정확히 말하자면, GStreamer의 Plugins으로 편성하는 것 입니다. 또한, GStreamer에서 CameraBin 으로 이용하기 위해, Photography 인터페이스 및 CameraBin을 상속받도록 구현해야합니다.
 
-현재 안드로이드 카메라 API 버전인 Camera2를 대상으로 버전업이 목적입니다.
+현재 Android Camera API 버전인 Camera2를 대상으로 버전업이 목적입니다.
 
 크게 두가지 섹션으로 이해하면 따라가기에 쉬울 것입니다. 
 
-1. 안드로이드 카메라 API
+1. Android Camera API
 
 2. GStreamer에서의 카메라 제어
 
@@ -20,7 +20,7 @@
 
 ## History
 
-안드로이드 카메라 API의 버전이 올라가면서 구현이 달라집니다. [안드로이드 카메라 개발 문서](https://developer.android.com/media/camera/get-started-with-camera?hl=ko)를 참고해주세요.
+Android Camera API의 버전이 올라가면서 구현이 달라집니다. [안드로이드 카메라 개발 문서](https://developer.android.com/media/camera/get-started-with-camera?hl=ko)를 참고해주세요.
 
 ### API 버전 목록
 
@@ -30,17 +30,15 @@
 
 ### Camera (deprecated)
 
-> 편의 및 혼란을 방지하기 위해 이하 Camera1 이라 부르겠습니다.
-
 현재 [GStreamer에 적용](https://github.com/gstreamer101/gstreamer/blob/android/camera/subprojects/gst-plugins-bad/sys/androidmedia/gstahcsrc.c)되어있는 API입니다.
 
-해당 안드로이드 카메라 API는 deprecated 되었고, Camera2로 대체되었습니다.
+해당 Android Camera API는 deprecated 되었고, Camera2로 대체되었습니다.
 
 ### Camera2 (**버전업 대상 API**)
 
 **버전업 대상 API** 입니다. 
 
-Camera1과는 다르게, C/C++ 라이브러리 (== 네이티브 라이브러리) 를 제공한다는 것이 주요 포인트입니다.
+Camera와는 다르게, C/C++ 라이브러리 (== 네이티브 라이브러리) 를 제공한다는 것이 주요 포인트입니다.
 
 [C/C++ 라이브러리는 NDK](https://developer.android.com/ndk/reference/group/camera)를 통해 제공됩니다.
 
@@ -50,7 +48,7 @@ Camera2를 사용하기 쉽게 wrapping한 클래스입니다. 안드로이드�
 
 ## 버전 업그레이드 특기 사항
 
-### Camera1은 C/C++ 라이브러리가 제공되지 않았습니다.
+### Camera는 C/C++ 라이브러리가 제공되지 않았습니다.
 
 따라서 Java 로 제공되는 인터페이스를 C/C++ 에서 사용할 수 있도록 JNI로 연동시키는 작업이 필요했습니다. 
 
@@ -62,7 +60,7 @@ Camera2를 사용하기 쉽게 wrapping한 클래스입니다. 안드로이드�
 
 ### GStreamer 플러그인으로 구현시, 성능 관점 차이점
 
-GStreamer는 C로 작성된 프로젝트입니다. 따라서 Camera1 API를 사용하기위해서는 JNI로 사용해야합니다. 하지만, 직접 JVM의 메모리를 참조할 수 없기 때문에 메모리 복사가 필요합니다. 
+GStreamer는 C로 작성된 프로젝트입니다. 따라서 Camera API를 사용하기위해서는 JNI로 사용해야합니다. 하지만, 직접 JVM의 메모리를 참조할 수 없기 때문에 메모리 복사가 필요합니다. 
 
 ![Camera 메모리 처리 구조도](https://github.com/user-attachments/assets/103a03df-092b-4b01-9ef7-64bc158d7c1f)
 
@@ -158,7 +156,7 @@ NDK 를 이용하여 안드로이드 카메라 resource 를 직접 접근하는 
 
 ### 인터페이스 구현 방식
 
-기존의 [ahcsrc - Camera1 element](https://github.com/gstreamer101/gstreamer/blob/android/camera/subprojects/gst-plugins-bad/sys/androidmedia/gstahcsrc.c#L71)를 바탕으로 인터페이스 구현 방식을 알아보겠습니다.
+기존의 [ahcsrc - Camera element](https://github.com/gstreamer101/gstreamer/blob/android/camera/subprojects/gst-plugins-bad/sys/androidmedia/gstahcsrc.c#L71)를 바탕으로 인터페이스 구현 방식을 알아보겠습니다.
 
 #### 1. `GstPhotography` 인터페이스 등록
 
